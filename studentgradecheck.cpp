@@ -1,79 +1,73 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
-int main(){
+
+int main() {
     char name[10];
     int num[3];
-    int total=0;
-    cout<<"enter the name : ";
-    cin>>name;
-    cout<<"enter the 3 subject marks : \n";
-    for(int i=0;i<3;i++){
-        cout<<"enter the marks ";
-        cin>>num[i];
-        cout<<endl;
-    }
-    for(int j=0;j<3;j++){
-      total=total+num[j];
-    }
-    cout<<endl;
-    cout<<"the total is marks is : "<<total;
-    cout<<endl;
-    double average =total/3.0;
+    int total = 0;
 
-    cout<<"the averge is : "<<average;
-    cout<<endl;
-    if(num[0]!=num[1] and num[0]!=num[2]
-    and num[1]!=num[2]){
-       if(num[0]>num[1] and num[0]>num[2]){
-        cout<<num[0]<<" is the gratest ";
-       }
-       else if(num[1]>num[2]&&num[1]>num[0]){
-        cout<<num[1]<<" is the greatest";
+    cout << "Enter the name: ";
+    cin >> name;
 
-       }
-       else{
-       cout<<num[2]<<" is the greatest ";
-    }
-    
-}
-else{
-    cout<<"the two or more no are equal ";
-}
-cout<<endl;
-if(num[0]!=num[1]and num[0]!=num[2]
-and num[1]!=num[2]){
-if(num[0]<num[1] and num[0]<num[2]){
-        cout<<num[0]<<" is the smallest ";
-       }
-       else if(num[1]<num[2]&&num[1]<num[0]){
-        cout<<num[1]<<" is the smallest";
+    cout << "Enter the 3 subject marks:\n";
 
-       }
-       else{
-       cout<<num[2]<<" is the smallst ";
+    for (int i = 0; i < 3; i++) {
+        cout << "Enter marks: ";
+        cin >> num[i];
     }
-cout<<endl;
-}
 
-    if(average>=80){
-        cout<<"The grade is A";
+    // Calculate total
+    for (int i = 0; i < 3; i++) {
+        total += num[i];
     }
-    else if(average>=70){
-        cout<<"The grade is B";
-    }
-    else if(average>=60){
-        cout<<"The grade is C";
-    }
-    else if(average>=50){
-        cout<<"The grade is D";
-        
-    }
-    else if(average>=40){
-        cout<<"The grade is E";
-    }
-    else
-    cout<<"The grade is F";
 
+    double average = total / 3.0;
+
+    cout << "\nName: " << name;
+    cout << "\nTotal: " << total;
+    cout << "\nAverage: " << average << endl;
+
+    int greatest = num[0];
+
+    if (num[1] > greatest) {
+        greatest = num[1];
+    }
+
+    if (num[2] > greatest) {
+        greatest = num[2];
+    }
+    int smallest = num[0];
+
+    if (num[1] < smallest) {
+        smallest = num[1];
+    }
+
+    if (num[2] < smallest) {
+        smallest = num[2];
+    }
+
+    cout << "Greatest mark: " << greatest << endl;
+    cout << "Smallest mark: " << smallest << endl;
+
+    // Grade
+    if (average >= 80) {
+        cout << "Grade: A";
+    }
+    else if (average >= 70) {
+        cout << "Grade: B";
+    }
+    else if (average >= 60) {
+        cout << "Grade: C";
+    }
+    else if (average >= 50) {
+        cout << "Grade: D";
+    }
+    else if (average >= 40) {
+        cout << "Grade: E";
+    }
+    else {
+        cout << "Grade: F";
+    }
 
     return 0;
 }
