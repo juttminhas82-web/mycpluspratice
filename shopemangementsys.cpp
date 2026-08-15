@@ -4,18 +4,31 @@ class product{
     private:
     int product_id;
     double product_price;
-    char product_name[50];
+    string product_name;
     double product_quantity;
     public:
+    int getNumber() {
+    int value;
+    while (true) {
+        cin >> value;
+        if (!cin.fail()) {
+            return value;
+        }
+        cin.clear();
+        cin.ignore(1000, '\n');
+        cout << "Invalid input. Enter a number: ";
+    }
+}
     void input(){
-        cout<<"\nenter the product id : ";
-        cin>>product_id;
-        cout<<"\nenter the product price : ";
-        cin>>product_price;
-        cout<<"\nenter the product name :  ";
-        cin>>product_name;
-        cout<<"\nenter the product quantity : ";
-        cin>>product_quantity;
+       
+ cout<<"\nenter the product id : ";
+product_id=getNumber();
+cout<<"\nenter the product price : ";
+        product_price=getNumber();
+        cout<<"\nenter the product name :";
+        getline(cin>>ws,product_name);
+cout<<"\nenter the product quantity : ";
+        product_quantity=getNumber();
     }
     void output(){
         cout<<"\nId : "<<product_id;
@@ -40,24 +53,26 @@ class product{
         return product_price;
     }
 };
+    int getNumber() {
+    int value;
+    while (true) {
+        cin >> value;
+        if (!cin.fail()) {
+            return value;
+        }
+        cin.clear();
+        cin.ignore(1000, '\n');
+        cout << "Invalid input. Enter a number: ";
+    }
+}
 int main(){
     int a;
     int choice;
     int index=0;
-    while(true){
         cout<<"enter the no of product : ";
-    cin>>a;
-    if(cin.fail()){
-        cin.clear();
-        cin.ignore(1000, '\n');
-      cout<<"enter the number : ";
-    }
-else {
-    break;
-}
-    }
-    
+    a=getNumber();
     product p[a];
+
     for(int i = 0; i<a;i++){
         cout<<"enter product no  "<<i+1<<" details : ";
         p[i].input();
@@ -70,7 +85,8 @@ else {
      }
      do{
      cout<<"\n----menu-----\n1.search product by id \n2.see the product quantity\n3.update price \n4.show the product details\n5.exit ";
-      cin>>choice;
+        choice=getNumber();  
+    
       if(choice==1){
         int id;
         bool found=false;
@@ -128,8 +144,9 @@ for(int n=0;n<a;n++){
     if(founddd==true){
             double d;
             cout<<"\nthe last price is : "<<p[index].getprice();
-            cout<<"\n enter the news price : ";
-            cin>>d;
+            cout<<"\n enter the new price : ";
+                d=getNumber();      
+          
             p[index].getprice(d);
             cout<<"\n now the price is "<< p[index].getprice(d);
         }
