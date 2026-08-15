@@ -37,14 +37,26 @@ class product{
     }
     double getprice(double e){
         product_price=e;
+        return product_price;
     }
 };
 int main(){
     int a;
     int choice;
     int index=0;
-    cout<<"enter the no of product : ";
+    while(true){
+        cout<<"enter the no of product : ";
     cin>>a;
+    if(cin.fail()){
+        cin.clear();
+        cin.ignore(1000, '\n');
+      cout<<"enter the number : ";
+    }
+else {
+    break;
+}
+    }
+    
     product p[a];
     for(int i = 0; i<a;i++){
         cout<<"enter product no  "<<i+1<<" details : ";
@@ -118,7 +130,7 @@ for(int n=0;n<a;n++){
             cout<<"\nthe last price is : "<<p[index].getprice();
             cout<<"\n enter the news price : ";
             cin>>d;
-            cout<<p[index].getprice(d);
+            p[index].getprice(d);
             cout<<"\n now the price is "<< p[index].getprice(d);
         }
         else{
