@@ -7,8 +7,8 @@ class product{
     string product_name;
     double product_quantity;
     public:
-    int getNumber() {
-    int value;
+    double getNumber() {
+    double value;
     while (true) {
         cin >> value;
         if (!cin.fail()) {
@@ -19,6 +19,7 @@ class product{
         cout << "Invalid input. Enter a number: ";
     }
 }
+
     void input(){
        
  cout<<"\nenter the product id : ";
@@ -52,6 +53,10 @@ cout<<"\nenter the product quantity : ";
         product_price=e;
         return product_price;
     }
+    int setquantity(int a){
+        product_quantity=a;
+        return product_quantity;
+    }
 };
     int getNumber() {
     int value;
@@ -64,6 +69,19 @@ cout<<"\nenter the product quantity : ";
         cin.ignore(1000, '\n');
         cout << "Invalid input. Enter a number: ";
     }
+}
+int searchno(product p[], int a){
+    int id;
+        cout<<"enter the id : ";
+        cin>>id;
+        for(int k=0;k<a;k++){
+            
+          if(id==p[k].getid()){
+            return k;
+            break;
+          }
+        }
+        return -1;
 }
 int main(){
     int a;
@@ -84,64 +102,32 @@ int main(){
         cout<<endl;
      }
      do{
-     cout<<"\n----menu-----\n1.search product by id \n2.see the product quantity\n3.update price \n4.show the product details\n5.exit ";
+     cout<<"\n----menu-----\n1.search product by id \n2.see the product quantity\n3.update price \n4.show the product details\n5.remove quantity\n6.exit ";
         choice=getNumber();  
     
       if(choice==1){
-        int id;
-        bool found=false;
-        cout<<"enter the id : ";
-        cin>>id;
-        for(int k=0;k<a;k++){
-            
-          if(id==p[k].getid()){
-            found=true;
-            index=k;
-            break;
-          }
-        }
-        if(found==true){
-            p[index].output();
-        }
-        else{
-            cout<<"wrong id product not found ";
-        }
+        int index= searchno(p,a);
+        if (index != -1) {
+    p[index].output();
+}
+else {
+    cout << "Product not found";
+}
       }
     else if(choice==2){
-          bool foundd=false;
-        int idd;
-        cout<<"enter the id : ";
-        cin>>idd;
-        for(int l=0;l<a;l++){
-          if(idd==p[l].getid()){
-            foundd=true;
-            index=l;
-            break;
-          }
-        }
-        if(foundd==true){
-         cout<<p[index].getquantity();
-        }
-        else{
-            cout<<"wrong id product not found ";
-        }
+    int index= searchno(p,a);
+        if (index != -1) {
+    p[index].getquantity();
+}
+else {
+    cout << "Product not found";
+}
 
     }
     
     else if (choice==3){
-        int iddd;
-        bool founddd=false;
-         cout<<"\nenter the product id : ";
-         cin>>iddd;
-for(int n=0;n<a;n++){
-          if(iddd==p[n].getid()){
-            founddd=true;
-            index=n;
-            break;
-          }
-        
-    }
-    if(founddd==true){
+        int index=searchno(p,a);
+    if(index != -1){
             double d;
             cout<<"\nthe last price is : "<<p[index].getprice();
             cout<<"\n enter the new price : ";
@@ -162,12 +148,33 @@ else if(choice==4){
         cout<<endl;
      }
 }
-else if(choice==5){
+else if(choice==6){
     cout<<"\nthanks for using ";
 }
-else{
-    cout<<"choice the no from menu ";
+else if(choice==5){
+    int index = searchno(p,a);
+    if(index != -1){
+        do{
+        int mines;
+        cout<<"enter the amount : ";
+        cin>>mines;
+        if(mines<=p[index].getquantity()){
+            int result=p[index].getquantity()-mines;
+     cout<<"\nok the old quntity is : "<<p[index].getquantity()<<"\nnow the remain stock is : "<<result;
+     p[index].setquantity(result);
+        }
+        else {
+            cout<<" you removing the more product then in stock : ";
+        }
+    }while(false);
+    }
+    else{
+        cout<<"the product not found ";
+    }
 }
-     }while(choice!=5);
+else{
+    cout<< "choice the no from menu ";
+}
+     }while(choice!=6);
      return 0;
 }
