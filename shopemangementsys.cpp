@@ -112,7 +112,7 @@ int main(){
         cout<<endl;
      }
      do{
-     cout<<"\n----menu-----\n1.search product by id \n2.see the product quantity\n3.update price \n4.show the product details\n5.remove quantity\n6.Total inventory\n7.Delete Product\n.8exit ";
+     cout<<"\n----menu-----\n1.search product by id \n2.see the product quantity\n3.update price \n4.show the product details\n5.remove quantity\n6.Total inventory\n7.Delete Product\n8.exit ";
         choice=getNumber();  
     
       if(choice==1){
@@ -186,7 +186,7 @@ else if(choice==6){
     double total =0;
     for(int i = 0;i<a;i++){
  total += p[i].getquantity() *p[i].getprice();
- cout<<"\nthe product info "<<endl<<"Name\n"<<p[i].getname()<<"Quantity"<<endl<<p[i].getquantity()<<endl<<"price"<<endl<<p[i].getprice();
+ cout<<"\nthe product info "<<endl<<"Name\n"<<p[i].getname()<<"\nQuantity"<<endl<<p[i].getquantity()<<endl<<"price"<<endl<<p[i].getprice();
     }
     
     cout<<"\nthe total inventory value is price is   : "<<total;
