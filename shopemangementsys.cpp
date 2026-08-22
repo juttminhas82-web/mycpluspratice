@@ -58,7 +58,7 @@ cout<<"\nenter the product quantity : ";
         product_price=e;
         return product_price;
     }
-    int setquantity(int a){
+    void setquantity(int a){
         product_quantity=a;
     }
 };
@@ -112,7 +112,7 @@ int main(){
         cout<<endl;
      }
      do{
-     cout<<"\n----menu-----\n1.search product by id \n2.see the product quantity\n3.update price \n4.show the product details\n5.remove quantity\n6.Total inventory\n7.Delete Product\n8.exit ";
+     cout<<"\n----menu-----\n1.search product by id \n2.see the product quantity\n3.update price \n4.show the product details\n5.remove quantity\n6.Total inventory\n7.Deleta Product\n8.exit ";
         choice=getNumber();  
     
       if(choice==1){
