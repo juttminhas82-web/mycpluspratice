@@ -15,10 +15,7 @@ int main(){
     int sz = 8;
     revsa(arr, sz);
     for(int i = 0; i<sz;i++){
-    
          cout<<arr[i]<<" ";
-
     }
     return 0;
-
 }
