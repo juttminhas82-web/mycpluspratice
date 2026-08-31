@@ -1,17 +1,15 @@
 #include<iostream>
 using namespace std;
 int main(){
-    int a; 
-    int b;
-    cout<<"The first no : ";
+    int a,b;
+    cout<<"Enter the value of a : ";
     cin>>a;
-    cout<<"the second no : ";
+    cout<<"Enter the value of b : ";
     cin>>b;
     while(b!=0){
         int carry = a & b;
-        a= a ^ b;
+        a = a ^ b; 
         b = carry<<1;
     }
-cout<<"the sum is = "  <<a;
-return 0;
+    cout<<"The answer is : "<<a;
 }

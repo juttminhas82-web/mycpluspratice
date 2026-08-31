@@ -1,21 +1,20 @@
 #include<iostream>
 using namespace std;
-void revsa(int arr[],int sz){
-    int start = 0;
-    int end = sz - 1 ;
+void reverse(int arr[],int size){
+    int start = 0; 
+    int end = size - 1;
     while(start<end){
-        swap(arr[start],arr[end]);
-        start ++;
-        end --;
+      swap(arr[start],arr[end]);
+      start ++;
+      end --;
     }
 
 }
 int main(){
-    int arr[]= {2,3,4,5,6,7,8,9};
-    int sz = 8;
-    revsa(arr, sz);
-    for(int i = 0; i<sz;i++){
-         cout<<arr[i]<<" ";
-    }
-    return 0;
+    int arr[]={1,2,3,4,7,6};
+    int size = 6;
+  reverse(arr,size);
+  for(int i = 0;i<6;i++){
+ cout<<" "<<arr[i]<<endl;
+  }
 }
