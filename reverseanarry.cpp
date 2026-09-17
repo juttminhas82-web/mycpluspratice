@@ -15,6 +15,6 @@ int main(){
     int size = 6;
   reverse(arr,size);
   for(int i = 0;i<6;i++){
- cout<<" "<<arr[i]<<endl;
+ cout<<" "<<arr[i];
   }
 }
