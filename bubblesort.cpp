@@ -18,7 +18,6 @@ int main() {
         if(isswap==false){
             break;
         }
-
     }
     for(int i = 0;i<sz;i++){
         cout<<" "<<vec[i];
