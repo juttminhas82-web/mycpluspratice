@@ -3,8 +3,8 @@
 using namespace std;
 
 int main() {
-    vector <int> vec = {2,3,1,5,4};
-    int sz = vec.size()-1;
+    vector <int> vec = {0,0,1,2,1,1,2,2,0};
+    int sz = vec.size();
     for(int i = 0;i<sz;i++){
         bool isswap = false;
         for(int j=0;j<sz-i;j++){
